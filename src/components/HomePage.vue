@@ -13,6 +13,11 @@
       @click.prevent="loadDataArtworks"
       >Refresh</v-btn
     >
+    <v-btn
+      class="mx-2 bg-deep-purple-accent-1 mt-10"
+      @click.prevent="loadDataArtworksNext"
+      >Next</v-btn
+    >
     <v-pagination v-model="page" class="my-4" :length="15"></v-pagination>
     <div class="py-14" />
 
@@ -89,6 +94,9 @@ export default {
   methods: {
     loadDataArtworks() {
       this.$store.dispatch("loadDataArtworks");
+    },
+    loadDataArtworksNext() {
+      this.$store.dispatch("loadDataArtworksNext");
     },
     loadDataArtworksPagination() {
       this.$store.dispatch("loadDataArtworksPagination");

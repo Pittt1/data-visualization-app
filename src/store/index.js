@@ -50,6 +50,31 @@ const store = createStore({
       }
       context.commit("setDataArts", artworks);
     },
+    async loadDataArtworksNext(context) {
+      const response = await fetch(
+        "https://api.artic.edu/api/v1/artworks?page=2"
+      );
+      const responseData = await response.json();
+      if (!response.ok) {
+        // ...
+      }
+
+      const artworks = [];
+      for (const key in responseData.data) {
+        console.log(responseData.data);
+        const artwork = {
+          artId: responseData.data[key].id,
+          artistTitle: responseData.data[key].artist_title,
+          titleWork: responseData.data[key].title,
+          imgUrl: responseData.data[key].image_id
+            ? responseData.data[key].image_id
+            : "https://cdn.vuetifyjs.com/images/cards/kitchen.png",
+          updatedAt: responseData.data[key].updated_at,
+        };
+        artworks.push(artwork);
+      }
+      context.commit("setDataArts", artworks);
+    },
     async loadDataArtworksPagination(context) {
       const response = await fetch(
         "https://api.artic.edu/api/v1/artworks?page=${current_page}"
