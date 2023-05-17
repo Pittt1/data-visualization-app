@@ -1,4 +1,4 @@
-Simple app imitation Login/Logout using Vuex.
+Simple app imitation Login/Logout using Vuex and Vuetify for visualization data from Art Institute of Chicago API.
 
 Get data from REST API and show in box. UpdatedAt, Title, and ArtistTitle. I tried to fetch a picture with the ternary operator, but there was a problem and there was not enough time to solve it.
 
@@ -7,6 +7,8 @@ There is button to refresh data.
 Prepare pagination (but I did not finish) and some mutation, action, getter for that.
 
 To start app you need copy repo to your computer and next step is npm install. After that you should follow the command npm run dev and go to http://localhost:3000/
+
+App deploy on http://pit1.webd.pro/
 
 # base
 
